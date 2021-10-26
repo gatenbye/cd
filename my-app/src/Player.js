@@ -1,9 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const useAudio = () => {
   const [playing, setPlaying] = useState(false);
 
-  const toggle = () => setPlaying(!playing);
+  function stopTimer() {
+    setPlaying(false);
+  }
+
+  const toggle = function() {
+    setPlaying(true);
+    setInterval(stopTimer, 30000);
+  } 
 
   return [playing, toggle];
 };
@@ -15,7 +22,7 @@ const Player = ({ text, numbers }) => {
     <div>
       {playing ? 
         <div>
-        <h2 className="digital-clock-font">{numbers[0]}</h2> 
+        <h1 className="digital-clock-font">{numbers[0]}</h1> 
         <h1>{numbers[1]}</h1> 
         <h1>{numbers[2]}</h1> 
         <h1>{numbers[3]}</h1> 

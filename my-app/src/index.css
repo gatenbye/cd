@@ -13,6 +13,7 @@ code {
 }
 
 .digital-clock-font {
+  display: block;
   color:  red;
   font-family: 'digital-clock-font';
   width: 320pt;
