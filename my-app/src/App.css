@@ -1,0 +1,19 @@
+/* Here just for context */
+html,
+body,
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+/* This is whats needed */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  display: inline-block;
+  width: 60pt;
+}
