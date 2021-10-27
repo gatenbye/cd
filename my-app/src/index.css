@@ -13,10 +13,16 @@ code {
 }
 
 .digital-clock-font {
-  display: block;
-  color:  red;
   font-family: 'digital-clock-font';
-  width: 320pt;
+  width: 150pt;
+  color: white;
+  font-size: 60pt;
+  text-align: center;
+  background-color: #0038A7;
+  padding: 15pt;
+}
+
+.numbers-container {
   text-align: center;
 }
 

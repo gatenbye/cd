@@ -15,5 +15,15 @@ body,
 
 h1 {
   display: inline-block;
-  width: 60pt;
+  width: 100pt;
+  font-size: 50pt;
+}
+
+button {
+  background-color: #0038A7;
+  padding: 15pt;
+  color: white;
+  font-size: 15pt;
+  border: 4pt inset #C6BDB6;
+  margin: 12pt;
 }
