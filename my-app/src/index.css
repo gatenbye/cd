@@ -12,6 +12,7 @@ code {
     monospace;
 }
 
+
 .digital-clock-font {
   font-family: 'digital-clock-font';
   width: 150pt;
@@ -20,10 +21,39 @@ code {
   text-align: center;
   background-color: #0038A7;
   padding: 15pt;
+  border-top: 5pt solid #011121;
+  border-left: 2pt solid #011121;
+  outline: 7pt solid #3F5D91;
+}
+
+.headers {
+  display: inline-block;
+  color: white;
+}
+
+.headers h1 {
+  background-color: #0038A7;
+  margin: 0;
+  border-top: 4pt inset #C6BDB6;
+  border-right: 2pt inset #C6BDB6;
+  margin-bottom: 20pt;
 }
 
 .numbers-container {
   text-align: center;
+  width: 500px;
+  margin-left: calc(50% - 250px);
+}
+
+.mute {
+  position: absolute;
+  width: 50px;
+  left: 20px;
+  right: 20px;
+}
+
+.mute img {
+  width: 50px;
 }
 
 @font-face{

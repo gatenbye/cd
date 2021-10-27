@@ -26,7 +26,7 @@ function calculateNumbers(numBig) {
     while(big == uniqueBig) {
       uniqueBig = getBigNumber();
     }
-    return [getRandomArbitrary(100, 1000), (getRandomArbitrary(1, 5)) * 25, (getRandomArbitrary(1, 5)) * 25, getRandomArbitrary(1, 10), getRandomArbitrary(1, 10), getRandomArbitrary(1, 10), getRandomArbitrary(1, 10)];
+    return [getRandomArbitrary(100, 1000), big, uniqueBig, getRandomArbitrary(1, 10), getRandomArbitrary(1, 10), getRandomArbitrary(1, 10), getRandomArbitrary(1, 10)];
     break;
   case 3:
     var bigs = [getBigNumber()];
@@ -65,52 +65,44 @@ function calculateNumbers(numBig) {
 }
 
 
-
-const useAudio = () => {
-  const [playing, setPlaying] = useState(-1);
-  var interval = null;
-
-  function stopTimer() {
-    setPlaying(-2);
-    clearInterval(interval);
-  }
-
-  const toggle = function(number) {
-    setPlaying(number);
-    interval = setInterval(stopTimer, 30000);
-  } 
-
-  return [playing, toggle];
-};
-
 function App() {
 
-  const [playing, toggle] = useAudio();
   const [numbers, setNumbers] = useState([]);
+  const [playing, setPlaying] = useState(-1);
   return (
     <div className="numbers-container">
 
-    {(playing == -1) && <button onClick={() => {toggle(0); setNumbers(calculateNumbers(0))}}>None from the top</button>}
-    {(playing == 0 || playing == -2) && <Player
+    {playing == -1 && <button onClick={() => {setNumbers(calculateNumbers(0)); setPlaying(0)}}>None from the top</button>}
+    {(playing && playing == 0) && <Player
         numbers={numbers}
+        noFromTop={0}
+        goBack={() => setPlaying(-1)}
       /> }
 
-    {(playing == -1) && <button onClick={() => {toggle(1); setNumbers(calculateNumbers(1))}}>One from the top</button> }
-    {(playing == 1 || playing == -2) && <Player
+    {playing == -1  && <button onClick={() => {setNumbers(calculateNumbers(1)); setPlaying(1)}}>One from the top</button> }
+    {(playing && playing == 1) && <Player
         numbers={numbers}
+        noFromTop={1}
+        goBack={() => setPlaying(-1)}
       /> }  
-    {(playing == -1) && <button onClick={() => {toggle(2); setNumbers(calculateNumbers(2))}}>Two from the top</button>}
-    {(playing == 2 || playing == -2) && <Player
+    {playing == -1  && <button onClick={() => {setNumbers(calculateNumbers(2)); setPlaying(2)}}>Two from the top</button>}
+    {(playing && playing == 2) && <Player
         numbers={numbers}
+        noFromTop={2}
+        goBack={() => setPlaying(-1)}
       /> }
 
-    {(playing == -1) && <button onClick={() => {toggle(3); setNumbers(calculateNumbers(3))}}>Three from the top</button> }
-    {(playing == 3 || playing == -2) && <Player
+    {playing == -1  && <button onClick={() => {setNumbers(calculateNumbers(3)); setPlaying(3)}}>Three from the top</button> }
+    {(playing && playing == 3) && <Player
         numbers={numbers}
+        noFromTop={3}
+        goBack={() => setPlaying(-1)}
       /> }  
-    {(playing == -1) && <button onClick={() => {toggle(4); setNumbers(calculateNumbers(4))}}>Four from the top</button> }
-    {(playing == 4 || playing == -2) && <Player
+    {playing == -1  && <button onClick={() => {setNumbers(calculateNumbers(4)); setPlaying(4)}}>Four from the top</button> }
+    {(playing && playing == 4) && <Player
         numbers={numbers}
+        noFromTop={4}
+        goBack={() => setPlaying(-1)}
       /> }  
 
   </div>);
