@@ -61,7 +61,7 @@ const Player = ({numbers, noFromTop, goBack}) => {
 
   function start() {
     setDegrees(0);
-    toggle(noFromTop);
+    toggle(1);
   }
 
   return (

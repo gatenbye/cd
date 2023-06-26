@@ -73,7 +73,7 @@ function App() {
     <div className="numbers-container">
 
     {playing == -1 && <button onClick={() => {setNumbers(calculateNumbers(0)); setPlaying(0)}}>None from the top</button>}
-    {(playing && playing == 0) && <Player
+    {(playing == 0) && <Player
         numbers={numbers}
         noFromTop={0}
         goBack={() => setPlaying(-1)}
